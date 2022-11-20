@@ -1,0 +1,13 @@
+* { box-sizing: border-box; margin: 0; padding: 0 }
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, pre,
+a, code, img, sub, sup, b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, footer, header,  
+main, menu, nav, section, summary {
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+ol, ul { list-style: none  }
+a { text-decoration: none }
+table { border-collapse: collapse; border-spacing: 0 }
