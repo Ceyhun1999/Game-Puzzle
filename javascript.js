@@ -1,12 +1,14 @@
 $(() => {
     const dataImg = ['spider-man.jpeg', 'Scooby-Doo.png', 'vinni.jpg', 'anime-girls.jpg', 'animals.webp', 'musicGroup.webp', 'cartoonNetwoork.jpeg', 'fishs.webp'];   
     let indexDataImg = 0; 
-    
+    let sec = 3;
     
     startGame();
     $('.btn-again').click(() => {
         $('#puzzle').html(` `);
         $('#fake-puzzle').html(` `);
+        myTimerFunc();
+        $('.timer').fadeIn();
         startGame();
     });
     $('.btn-changeImage').click(() => {
@@ -14,12 +16,33 @@ $(() => {
         $('#fake-puzzle').html(` `);
         indexDataImg++;
         if (indexDataImg > dataImg.length -1) indexDataImg = 0;
+        myTimerFunc();
+        $('.timer').fadeIn();
         startGame();
     });
 
+    myTimerFunc();
+    function myTimerFunc() {
+        $('.btn-again').attr('disabled', 'disabled');
+        $('.btn-changeImage').attr('disabled', 'disabled');
+        const myInterval = setInterval(changeTime, 1000)
+        function changeTime() {
+            console.log( $('.timer').text());
+            sec--;
+            if (sec == 0) {
+                clearInterval(myInterval);
+                $('.timer').fadeOut();
+                sec = 3;
+                $('.btn-again').removeAttr('disabled');
+                $('.btn-changeImage').removeAttr('disabled');
+            }
+            $('.timer').text(`${sec}`);
+        }
+    }
+       
     function startGame() {
         createPuzzle();
-        setTimeout(destroyPuzzle, 2000);
+        setTimeout(destroyPuzzle, 3000);
         draggableFunc();
         let numberTruePuzzleİtem = [];
         let numberFalsePuzzleİtem = [];
